@@ -1,6 +1,7 @@
 package com.lsautomacao.dslist.dto;
 
 import com.lsautomacao.dslist.entities.Game;
+import com.lsautomacao.dslist.projections.GameMinProjection;
 
 import lombok.Data;
 
@@ -14,7 +15,7 @@ public class GameMinDTO {
 	
 	
 	public GameMinDTO(Game entity) {
-		super();
+	
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();
@@ -22,5 +23,13 @@ public class GameMinDTO {
 		shortDescription = entity.getShortDescription();
 	}
 	
+	public GameMinDTO(GameMinProjection projection) {
+		
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
 	
 }
